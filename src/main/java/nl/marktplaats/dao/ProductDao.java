@@ -11,7 +11,7 @@ import java.util.Optional;
 import static nl.marktplaats.util.Responses.throwBadRequest;
 
 @Stateless
-public class ProductDao extends Dao<Product> {
+public class ProductDao extends Dao<Integer, Product> {
     @PersistenceContext
     private EntityManager em;
 

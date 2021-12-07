@@ -13,9 +13,9 @@ import java.util.Collection;
 /**
  * Generic Dao for all other Dao's
  *
- * @param <E>
+ * @param <E>, the type of the extention, ie Userdao extends Dao<User>
  */
-public abstract class Dao<E extends AbstractEntity<String>> {
+public abstract class Dao<I, E extends AbstractEntity<I>> {
 
     @PersistenceContext
     protected EntityManager em;
@@ -24,7 +24,7 @@ public abstract class Dao<E extends AbstractEntity<String>> {
         return em.createNamedQuery(typeSimple() + ".findAll", E()).getResultList();
     }
 
-    public E getById(int id) {
+    public E getById(I id) {
         return em.find(E(), id);
     }
 
@@ -52,7 +52,7 @@ public abstract class Dao<E extends AbstractEntity<String>> {
      * @param id
      * @return
      */
-    public boolean remove(int id) {
+    public boolean remove(I id) {
         E e = em.find(E(), id);
         if (e == null) return false;
 
@@ -67,7 +67,7 @@ public abstract class Dao<E extends AbstractEntity<String>> {
      * @param e
      * @return
      */
-    public E update(int id, E e) {
+    public E update(I id, E e) {
         E found = em.find(E(), id);
         if (found == null) throw new BadRequestException("Entity with id " + id + " not found.");
 

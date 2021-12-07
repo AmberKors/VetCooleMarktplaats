@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class User implements AbstractEntity<String> {
+public class User implements AbstractEntity<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,5 +26,8 @@ public class User implements AbstractEntity<String> {
     private String password;
 
 
+    @Override
+    public void setId(Integer id) {
 
+    }
 }
