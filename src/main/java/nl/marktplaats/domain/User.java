@@ -30,4 +30,8 @@ public class User implements AbstractEntity<Integer> {
     public void setId(Integer id) {
 
     }
+    @Override
+    public Integer getId() {
+        return id;
+    }
 }
