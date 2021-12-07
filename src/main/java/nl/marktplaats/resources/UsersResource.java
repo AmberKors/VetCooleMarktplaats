@@ -20,7 +20,7 @@ public class UsersResource {
     private UserResource userResource;
 
     @Path("{userId}")
-    public UserResource contactResource(@PathParam("userId") int id) {
+    public UserResource userResource(@PathParam("userId") int id) {
         this.userResource.setId(id);
         return this.userResource;
     }

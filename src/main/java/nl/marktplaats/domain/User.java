@@ -19,19 +19,19 @@ public class User implements AbstractEntity<Integer> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     private String firstName;
     private String lastName;
     private String username;
     private String password;
 
-
     @Override
     public void setId(Integer id) {
-
+        this.id = id;
     }
+
     @Override
     public Integer getId() {
-        return id;
+        return this.id;
     }
 }

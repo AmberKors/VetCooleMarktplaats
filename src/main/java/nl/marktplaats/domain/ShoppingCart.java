@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import nl.marktplaats.exceptions.ProductAlreadyInWinkelwagenException;
+import nl.marktplaats.exceptions.ProductAlreadyInShoppingCartException;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -20,7 +20,7 @@ import static javax.persistence.FetchType.LAZY;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Winkelwagen {
+public class ShoppingCart implements AbstractEntity<Integer> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -34,7 +34,7 @@ public class Winkelwagen {
         if (uniqueProducts.size() != products.size()) {
             this.products.add(p);
         } else {
-            throw new ProductAlreadyInWinkelwagenException();
+            throw new ProductAlreadyInShoppingCartException();
         }
     }
 
@@ -44,5 +44,10 @@ public class Winkelwagen {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    @Override
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
