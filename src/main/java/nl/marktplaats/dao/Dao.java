@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.ws.rs.BadRequestException;
 import java.lang.reflect.ParameterizedType;
-import java.util.Collection;
+import java.util.List;
 
 /**
  * Generic Dao for all other Dao's
@@ -20,7 +20,7 @@ public abstract class Dao<I, E extends AbstractEntity<I>> {
     @PersistenceContext
     protected EntityManager em;
 
-    public Collection<E> getAll() {
+    public List<E> getAll() {
         return em.createNamedQuery(typeSimple() + ".findAll", E()).getResultList();
     }
 
@@ -28,7 +28,7 @@ public abstract class Dao<I, E extends AbstractEntity<I>> {
         return em.find(E(), id);
     }
 
-    public Collection<E> get(String q) {
+    public List<E> get(String q) {
         TypedQuery<E> namedQuery = em.createNamedQuery(typeSimple() + ".search", E());
         namedQuery.setParameter("q", "%" + q + "%");
         return namedQuery.getResultList();
