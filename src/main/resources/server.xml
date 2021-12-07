@@ -1,0 +1,23 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<server description="new server">-->
+
+<!--    &lt;!&ndash; Enable features &ndash;&gt;-->
+<!--    <featureManager>-->
+<!--        <feature>webProfile-8.0</feature>-->
+<!--        <feature>localConnector-1.0</feature>-->
+<!--    </featureManager>-->
+
+<!--    <httpEndpoint id="defaultHttpEndpoint" httpPort="9081" httpsPort="9444"/>-->
+
+<!--    &lt;!&ndash; H2 for arquillian integration tests &ndash;&gt;-->
+<!--    <dataSource id="h2test" jndiName="jdbc/h2"> &lt;!&ndash; must start with jdbc/ &ndash;&gt;-->
+<!--        <jdbcDriver libraryRef="H2Lib"/>-->
+<!--        <properties URL="jdbc:h2:mem:testdb" user="sa" password=""/>-->
+<!--    </dataSource>-->
+
+<!--    <library id="H2Lib">-->
+<!--        <file name="${wlp.install.dir}/usr/shared/h2.jar"/> &lt;!&ndash;staat op het classpath van de server&ndash;&gt;-->
+<!--    </library>-->
+
+<!--</server>-->
+
