@@ -26,7 +26,7 @@ import java.time.LocalDate;
         @NamedQuery(name = "Product.findOne", query = "SELECT p FROM Product p WHERE p.id=:id"),
 
 })
-public class Product {
+public class Product implements AbstractEntity<String>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,6 +53,12 @@ public class Product {
                 "omschrijving: " + description + '\n' +
                 "prijs: " + price + '\n' +
                 "plaatsingsdatum: " + datePublished + '\n';
+    }
+
+
+    @Override
+    public void setId(int id) {
+
     }
 }
 

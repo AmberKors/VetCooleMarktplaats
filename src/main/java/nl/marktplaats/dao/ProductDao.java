@@ -2,6 +2,7 @@ package nl.marktplaats.dao;
 
 import nl.marktplaats.domain.Product;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
@@ -9,7 +10,8 @@ import java.util.Optional;
 
 import static nl.marktplaats.util.Responses.throwBadRequest;
 
-public class ProductDao {
+@Stateless
+public class ProductDao extends Dao<Product> {
     @PersistenceContext
     private EntityManager em;
 

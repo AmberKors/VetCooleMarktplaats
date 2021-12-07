@@ -15,13 +15,13 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class User {
+public class User implements AbstractEntity<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String FirstName;
-    private String LastName;
+    private String firstName;
+    private String lastName;
     private String username;
     private String password;
 
