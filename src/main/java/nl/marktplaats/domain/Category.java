@@ -4,7 +4,7 @@ public enum Category {
     BOEKEN,
     DIEREN_EN_TOEBEHOREN,
     TICKETS,
-    HUIS_EN_iNRICHTING,
+    HUIS_EN_INRICHTING,
     KLEDING;
 
 // Komt in  frontend:
