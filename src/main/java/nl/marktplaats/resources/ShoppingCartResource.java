@@ -1,4 +1,4 @@
 package nl.marktplaats.resources;
 
-public class WinkelwagenResource {
+public class ShoppingCartResource {
 }
