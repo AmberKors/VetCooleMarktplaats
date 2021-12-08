@@ -2,6 +2,7 @@ package nl.marktplaats.dao;
 
 
 import nl.marktplaats.domain.AbstractEntity;
+import nl.marktplaats.domain.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -84,5 +85,6 @@ public abstract class Dao<E extends AbstractEntity<Integer>> {
         ParameterizedType thisDaoClass = (ParameterizedType) getClass().getGenericSuperclass();
         return (Class<E>) thisDaoClass.getActualTypeArguments()[0];
     }
+
 
 }

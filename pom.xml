@@ -18,6 +18,7 @@
 
     <dependencyManagement>
         <dependencies>
+
             <dependency>
                 <groupId>org.jboss.arquillian</groupId>
                 <artifactId>arquillian-bom</artifactId>
@@ -124,16 +125,14 @@
                 <version>3.0.M1</version>
                 <configuration>
                     <assemblyArtifact>
-                        <!-- Liberty server to run test against -->
                         <groupId>io.openliberty</groupId>
                         <artifactId>openliberty-runtime</artifactId>
                         <version>21.0.0.12</version>
                         <type>zip</type>
                     </assemblyArtifact>
-                    <configFile>src/test/resources/server.xml</configFile> <!-- Used to run Arquillian-->
+                    <configFile>src/test/resources/server.xml</configFile>
                 </configuration>
                 <executions>
-                    <!-- Create server during package phase for running the application AND Arquillian -->
                     <execution>
                         <phase>pre-integration-test</phase>
                         <goals>
