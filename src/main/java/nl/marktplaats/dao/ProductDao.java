@@ -5,6 +5,6 @@ import nl.marktplaats.domain.Product;
 import javax.ejb.Stateless;
 
 @Stateless
-public class ProductDao extends Dao<Integer, Product> {
+public class ProductDao extends Dao<Product> {
 
 }

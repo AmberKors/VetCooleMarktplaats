@@ -1,6 +1,6 @@
 package nl.marktplaats.resources;
 
-import nl.marktplaats.dao.ProductDao;
+import nl.marktplaats.dao.Dao;
 import nl.marktplaats.domain.Product;
 
 import javax.enterprise.context.Dependent;
@@ -14,7 +14,7 @@ public class ProductResource {
     private int id;
 
     @Inject
-    private ProductDao productDao;
+    private Dao<Product> productDao;
 
     public void setId(int id) {
         this.id = id;

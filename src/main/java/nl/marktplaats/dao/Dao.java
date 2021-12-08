@@ -15,7 +15,7 @@ import java.util.List;
  *
  * @param <E>, the type of the extention, ie Userdao extends Dao<User>
  */
-public abstract class Dao<I, E extends AbstractEntity<I>> {
+public abstract class Dao<E extends AbstractEntity<Integer>> {
 
     @PersistenceContext
     protected EntityManager em;
@@ -24,7 +24,7 @@ public abstract class Dao<I, E extends AbstractEntity<I>> {
         return em.createNamedQuery(typeSimple() + ".findAll", E()).getResultList();
     }
 
-    public E getById(I id) {
+    public E getById(Integer id) {
         return em.find(E(), id);
     }
 
@@ -52,7 +52,7 @@ public abstract class Dao<I, E extends AbstractEntity<I>> {
      * @param id
      * @return
      */
-    public boolean remove(I id) {
+    public boolean remove(Integer id) {
         E e = em.find(E(), id);
         if (e == null) return false;
 
@@ -67,7 +67,7 @@ public abstract class Dao<I, E extends AbstractEntity<I>> {
      * @param e
      * @return
      */
-    public E update(I id, E e) {
+    public E update(Integer id, E e) {
         E found = em.find(E(), id);
         if (found == null) throw new BadRequestException("Entity with id " + id + " not found.");
 

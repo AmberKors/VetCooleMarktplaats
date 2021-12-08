@@ -10,9 +10,9 @@ import java.util.Collection;
 
 public abstract class Resource<E extends AbstractEntity<Integer>> {
 
-    protected Dao<Integer,E> dao;
+    protected Dao<E> dao;
 
-    public abstract void setDao(Dao<Integer, E> dao);
+    public abstract void setDao(Dao<E> dao);
 
     @GET
     public Collection<E> getAll(@QueryParam("q") String q) {
