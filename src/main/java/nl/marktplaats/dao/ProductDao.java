@@ -7,4 +7,5 @@ import javax.ejb.Stateless;
 @Stateless
 public class ProductDao extends Dao<Product> {
 
+
 }
