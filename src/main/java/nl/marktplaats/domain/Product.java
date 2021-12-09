@@ -24,7 +24,7 @@ import java.time.LocalDate;
 public class Product implements AbstractEntity<Integer> {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private int id;
 
     @Size(min = 1, max = 200, message = "Maximaal 200 karakters")

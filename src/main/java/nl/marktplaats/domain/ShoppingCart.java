@@ -6,7 +6,10 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import nl.marktplaats.exceptions.ProductAlreadyInShoppingCartException;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -22,7 +25,7 @@ import static javax.persistence.FetchType.LAZY;
 @Entity
 public class ShoppingCart implements AbstractEntity<Integer> {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Integer id;
 
     @OneToMany(cascade = ALL, fetch = LAZY)
