@@ -21,8 +21,7 @@ public class ShoppingCartResource {
     @GET
     @Produces(APPLICATION_JSON)
     public List<Product> getWithProducts(@PathParam("cartId") int id) {
-        ShoppingCart shoppingCart = shoppingCartDao.getById(id);
-        return shoppingCartDao.getWithProducts(shoppingCart);
+        return shoppingCartDao.getShoppingCartProducts(id);
     }
 
     @PUT

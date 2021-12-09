@@ -16,9 +16,7 @@ import java.time.LocalDate;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
-        @NamedQuery(name = "Product.findOne", query = "SELECT p FROM Product p WHERE p.id=:id"),
-        @NamedQuery(name = "product.FindOneUserProduct", query = "SELECT p FROM Product p where p.id = :id and p.user = :user_id")
-
+        @NamedQuery(name = "Product.findOneUserProduct", query = "SELECT p FROM Product p where p.id = :id and p.user = :user_id")
 })
 public class Product implements AbstractEntity<Integer> {
 
@@ -39,6 +37,9 @@ public class Product implements AbstractEntity<Integer> {
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private ShoppingCart shoppingCart;
 
     @Override
     public String toString() {
