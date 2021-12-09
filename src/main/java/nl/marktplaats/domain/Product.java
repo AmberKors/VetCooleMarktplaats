@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -32,7 +31,6 @@ public class Product implements AbstractEntity<Integer> {
 
     private Category category;
 
-    @Pattern(regexp = "\\d*[.]\\d{2}")
     private double price;
     @Size(min = 1, max = 200, message = "Maximaal 200 karakters")
     private String description;

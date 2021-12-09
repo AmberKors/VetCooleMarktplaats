@@ -4,11 +4,13 @@ package nl.marktplaats.dao;
 import nl.marktplaats.domain.SimplifiedUser;
 import nl.marktplaats.domain.User;
 
-import javax.ejb.Stateless;
+import javax.ejb.Singleton;
+import javax.ejb.Startup;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-@Stateless
+@Singleton
+@Startup
 public class UserDao extends Dao<User> {
 
 
