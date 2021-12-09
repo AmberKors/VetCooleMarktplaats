@@ -1,12 +1,7 @@
 package nl.marktplaats.resources;
 
 import nl.marktplaats.App;
-import nl.marktplaats.dao.Dao;
-import nl.marktplaats.dao.UserDao;
-import nl.marktplaats.domain.AbstractEntity;
-import nl.marktplaats.domain.SimplifiedUser;
 import nl.marktplaats.domain.User;
-
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.test.api.ArquillianResource;
@@ -17,7 +12,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import javax.inject.Inject;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import java.net.URL;
@@ -37,8 +31,6 @@ public class CreateNewUserIT {
     private String userResource;
     private String userURI = "/api/users";
 
-    @Inject
-    private UserDao userDao;
 
     @Before
     public void setup() {
@@ -71,7 +63,7 @@ public class CreateNewUserIT {
 
         assertThat(CreatedUser, containsString("\"id\":1"));
         assertThat(CreatedUser, containsString("\"firstName\":\"Richard\""));
-        assertThat(CreatedUser, containsString("\"surname\":\"Kameel\""));
+        assertThat(CreatedUser, containsString("\"lastName\":\"Kameel\""));
         assertThat(CreatedUser, containsString("\"username\":\"Rkam29\""));
         assertThat(CreatedUser, containsString("\"password\":\"Zomer2021\""));
     }
