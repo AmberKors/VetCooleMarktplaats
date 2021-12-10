@@ -24,14 +24,6 @@ public class UsersResource {
     @Inject
     private UserResource userResource;
 
-    @Path("{userId}")
-    @Operation(description = "Get specific user on ID")
-    public UserResource userResource(@PathParam("userId") int id) {
-        this.userResource.setId(id);
-        return this.userResource;
-    }
-
-
     @POST
     @Consumes(APPLICATION_JSON)
     @Produces(APPLICATION_JSON)
@@ -42,6 +34,11 @@ public class UsersResource {
         return userDao.add(u);
     }
 
-
+    @Path("{userId}")
+    @Operation(description = "Get specific user on ID")
+    public UserResource userResource(@PathParam("userId") int id) {
+        this.userResource.setId(id);
+        return this.userResource;
+    }
 }
 
