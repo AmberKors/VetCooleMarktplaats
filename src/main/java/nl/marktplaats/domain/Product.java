@@ -30,6 +30,7 @@ public class Product implements AbstractEntity<Integer> {
     private Category category;
 
     private double price;
+
     @Size(min = 1, max = 200, message = "Maximaal 200 karakters")
     private String description;
 
