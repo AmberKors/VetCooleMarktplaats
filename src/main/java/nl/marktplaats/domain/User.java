@@ -23,6 +23,10 @@ public class User implements AbstractEntity<Integer> {
     private String lastName;
     private String username;
     private String password;
+    private Delivery delivery;
+    private String street;
+    private String postalcode;
+    private Integer housenumber;
 
     @Override
     public void setId(Integer id) {
