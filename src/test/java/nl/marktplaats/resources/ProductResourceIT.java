@@ -22,18 +22,15 @@ import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-
 @RunWith(Arquillian.class)
 public class ProductResourceIT {
 
     @ArquillianResource
     private URL deploymentURL;
-
     private String productResource;
     private String uproductResource;
-    private String uproductURI= "/api/products/1";
+    private String uproductURI = "/api/products/1";
     private String productURI = "/api/products";
-
 
     @Before
     public void setup() {
@@ -50,35 +47,30 @@ public class ProductResourceIT {
 
         System.out.println(archive.toString(true));
         return archive;
-
     }
 
     @Test
-    public void WhenUpdateProductIsSuccesfull() {
-
+    public void whenUpdateProductIsSuccessful() {
         Client http = ClientBuilder.newClient();
         Product p = Product.builder().id(1).name("Puppies").price(12.99).description("Zeer schattig").category(Category.DIEREN_EN_TOEBEHOREN).build();
 
-        String CreatedProduct= http
+        String createdProduct = http
                 .target(productResource)
-                .request().post(entity(p, APPLICATION_JSON), String.class);
-
-
-        System.out.println(CreatedProduct);
-
+                .request()
+                .post(entity(p, APPLICATION_JSON), String.class);
+        System.out.println(createdProduct);
 
         p.setName("Meer puppies");
         p.setDescription("Schattiger dan de vorige");
 
-        String UpdatedProduct = http
+        String updatedProduct = http
                 .target(uproductResource)
-                .request().put(entity(p, APPLICATION_JSON), String.class);
+                .request()
+                .put(entity(p, APPLICATION_JSON), String.class);
+        System.out.println(updatedProduct);
 
-        System.out.println(UpdatedProduct);
-
-        assertThat(UpdatedProduct, containsString("1"));
-        assertThat(UpdatedProduct, containsString("Meer"));
-        assertThat(UpdatedProduct, containsString("vorige"));
-
+        assertThat(updatedProduct, containsString("1"));
+        assertThat(updatedProduct, containsString("Meer"));
+        assertThat(updatedProduct, containsString("vorige"));
     }
 }
