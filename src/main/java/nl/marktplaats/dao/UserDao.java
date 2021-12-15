@@ -21,7 +21,7 @@ public class UserDao extends Dao<User> {
         query.setParameter("username", u.getUsername());
         query.setParameter("password", digestPassword(u.getPassword()));
         List<User> resultList = query.getResultList();
-        if (resultList.size() == 0) {
+        if (resultList.isEmpty()) {
             return null;
         } else {
             return resultList.get(0);
