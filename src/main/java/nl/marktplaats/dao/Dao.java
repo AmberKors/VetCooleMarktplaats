@@ -2,7 +2,6 @@ package nl.marktplaats.dao;
 
 
 import nl.marktplaats.domain.AbstractEntity;
-import nl.marktplaats.domain.User;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -32,6 +31,12 @@ public abstract class Dao<E extends AbstractEntity<Integer>> {
     public List<E> get(String q) {
         TypedQuery<E> namedQuery = em.createNamedQuery(typeSimple() + ".search", E());
         namedQuery.setParameter("q", "%" + q + "%");
+        return namedQuery.getResultList();
+    }
+
+    public List<E> searchById(int q) {
+        TypedQuery<E> namedQuery = em.createNamedQuery(typeSimple() + ".searchById", E());
+        namedQuery.setParameter("q", q);
         return namedQuery.getResultList();
     }
 

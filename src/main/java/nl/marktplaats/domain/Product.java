@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @Entity
 @NamedQueries({
         @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p"),
-        @NamedQuery(name = "Product.findOneUserProduct", query = "SELECT p FROM Product p where p.id = :id and p.user = :user_id")
+        @NamedQuery(name = "Product.searchById", query = "SELECT p FROM Product p where p.user.id = :q"),
 })
 public class Product implements AbstractEntity<Integer> {
 

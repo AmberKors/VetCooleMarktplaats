@@ -19,8 +19,13 @@ public class ProductsResource {
 
     @GET
     @Produces(APPLICATION_JSON)
-    public List<Product> getProducts() {
+    public List<Product> getProducts(@QueryParam("user_id") String userId) {
+        if (userId != null) {
+            int x = Integer.parseInt(userId);
+            return this.productDao.searchById(x);
+        }
         return this.productDao.getAll();
+
     }
 
     @POST
