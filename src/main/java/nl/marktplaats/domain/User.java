@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import nl.marktplaats.util.PasswordUtils;
 
 import javax.persistence.*;
 
@@ -40,4 +41,10 @@ public class User implements AbstractEntity<Integer> {
 
     @OneToOne
     private ShoppingCart shoppingCart;
+
+
+    @PrePersist
+    public void encryptPassword(){
+        password = PasswordUtils.digestPassword(password);
+    }
 }

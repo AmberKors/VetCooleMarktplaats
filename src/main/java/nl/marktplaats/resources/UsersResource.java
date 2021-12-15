@@ -31,6 +31,7 @@ public class UsersResource {
     public User add(User u) {
         ShoppingCart cart = shoppingCartDao.add(new ShoppingCart());
         u.setShoppingCart(cart);
+
         return userDao.add(u);
     }
 
