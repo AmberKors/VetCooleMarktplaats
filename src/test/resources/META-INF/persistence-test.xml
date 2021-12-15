@@ -8,7 +8,7 @@
     <persistence-unit name="H2-hrm-test" transaction-type="JTA">
         <jta-data-source>jdbc/h2</jta-data-source>
         <properties>
-            <property name="eclipselink.ddl-generation" value="create-or-extend-tables"/>
+            <property name="eclipselink.ddl-generation" value="drop-and-create-tables"/>
             <property name="eclipselink.ddl-generation.output-mode" value="database" />
             <property name="eclipselink.target-database" value="org.eclipse.persistence.platform.database.H2Platform"/>
         </properties>

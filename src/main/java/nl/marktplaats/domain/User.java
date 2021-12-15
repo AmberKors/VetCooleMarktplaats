@@ -26,7 +26,7 @@ public class User implements AbstractEntity<Integer> {
     private Delivery delivery;
     private String street;
     private String postalcode;
-    private Integer housenumber;
+    private String housenumber;
 
     @Override
     public void setId(Integer id) {
